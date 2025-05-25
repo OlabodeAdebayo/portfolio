@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects - Olabode Adebayo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body x-data="{ darkMode: false, menuOpen: false }" x-init="
+  darkMode = localStorage.getItem('theme') === 'dark';
+  $watch('darkMode', val => localStorage.setItem('theme', val ? 'dark' : 'light'))
+" :class="{ 'dark': darkMode }" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 shadow">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold">Olabode Adebayo</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="projects.html" class="font-semibold underline">Projects</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <button @click="darkMode = !darkMode" class="text-sm bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">
+          Toggle Dark Mode
+        </button>
+        <button @click="menuOpen = !menuOpen" class="md:hidden focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div x-show="menuOpen" class="md:hidden bg-white dark:bg-gray-800 px-4 pb-4 space-y-2">
+      <a href="index.html" class="block">Home</a>
+      <a href="about.html" class="block">About</a>
+      <a href="projects.html" class="block font-semibold">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 max-w-6xl mx-auto px-4">
+    <section class="py-12">
+      <h1 class="text-4xl font-bold mb-8">Projects</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Project 1 -->
+        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow">
+          <h2 class="text-2xl font-semibold mb-2">Preweighing System Optimization</h2>
+          <p class="text-gray-700 dark:text-gray-300">Identified and fixed a calibration issue in an industrial preweighing system, saving €70,000 in material variance. Developed a scalable validation process for future error detection.</p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow">
+          <h2 class="text-2xl font-semibold mb-2">Wireless File Transfer App</h2>
+          <p class="text-gray-700 dark:text-gray-300">Currently building an Android-based file transfer app using Wi-Fi Direct to enable cross-platform sharing between Android, iOS, and PC without internet or cables.</p>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow">
+          <h2 class="text-2xl font-semibold mb-2">Portfolio Website</h2>
+          <p class="text-gray-700 dark:text-gray-300">Designed and built a responsive, multi-page personal portfolio using Tailwind CSS and Alpine.js. Supports dark mode, mobile navigation, and is hosted via GitHub Pages.</p>
+        </div>
+
+        <!-- Add more projects as needed -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 dark:bg-gray-800 text-center py-6 mt-16">
+    <p>&copy; 2025 Olabode Adebayo. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
